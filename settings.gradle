@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "YelpPrototype"
+rootProject.name = "OpenWeatherMapPrototype"
