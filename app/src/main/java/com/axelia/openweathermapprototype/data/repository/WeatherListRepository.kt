@@ -20,8 +20,7 @@ import javax.inject.Singleton
 
 
 @ExperimentalCoroutinesApi
-@Singleton
-class WeatherListRepository @Inject constructor(
+class WeatherListRepository constructor(
     private val itemsDao: WeatherDao,
     private val apiService: OpenWeatherMapService
 ) : Parcelable {
@@ -55,9 +54,9 @@ class WeatherListRepository @Inject constructor(
     @MainThread
     fun getItemById(itemId: Long): Flow<WeatherElement> = itemsDao.getItemById(itemId)
 
-    suspend fun favoriteItem(itemId: Long): Int = itemsDao.favoriteItem(itemId)
+    suspend fun favoriteItem(itemId: Long) = itemsDao.favoriteItem(itemId)
 
-    suspend fun removeAsFavoriteItem(itemId: Long): Int = itemsDao.removeAsFavoriteItem(itemId)
+    suspend fun removeAsFavoriteItem(itemId: Long) = itemsDao.removeAsFavoriteItem(itemId)
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
 

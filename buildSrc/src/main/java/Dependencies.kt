@@ -9,8 +9,8 @@ object Testing {
 }
 
 object Dependencies {
-    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
-    const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.20"
+    const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20"
     const val gradle = "com.android.tools.build:gradle:4.0.0"
     const val daggerHilt = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
     const val materialDesign = "com.google.android.material:material:1.1.0"
@@ -48,9 +48,9 @@ object Android {
 }
 
 object Room {
-    const val compiler = "androidx.room:room-compiler:2.2.5"
-    const val ktx = "androidx.room:room-ktx:2.2.5"
-    const val runtime = "androidx.room:room-runtime:2.2.5"
+    const val compiler = "androidx.room:room-compiler:2.4.2"
+    const val ktx = "androidx.room:room-ktx:2.4.2"
+    const val runtime = "androidx.room:room-runtime:2.4.2"
 }
 
 object Gson {

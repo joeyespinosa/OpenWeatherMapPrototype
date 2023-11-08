@@ -11,12 +11,12 @@ import com.axelia.openweathermapprototype.ui.base.BaseActivity
 import com.axelia.openweathermapprototype.utils.replaceFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @ExperimentalCoroutinesApi
-@AndroidEntryPoint
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
-    override val mViewModel: MainViewModel by viewModels()
+    override val mViewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)

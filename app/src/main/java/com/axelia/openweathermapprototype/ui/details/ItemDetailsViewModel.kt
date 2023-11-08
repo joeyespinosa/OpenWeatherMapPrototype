@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 
 @ExperimentalCoroutinesApi
-class ItemDetailsViewModel @ViewModelInject constructor(private val repository: WeatherListRepository) :
+class ItemDetailsViewModel constructor(private val repository: WeatherListRepository) :
     ViewModel() {
 
     private lateinit var result: LiveData<WeatherElement>

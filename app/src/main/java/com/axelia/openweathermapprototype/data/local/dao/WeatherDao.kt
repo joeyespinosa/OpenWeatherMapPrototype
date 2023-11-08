@@ -23,8 +23,8 @@ interface WeatherDao {
     fun getAllItems(): Flow<List<WeatherElement>>
 
     @Query("UPDATE ${WeatherElement.TABLE_NAME} SET isFavorite = 1 WHERE id = :weatherId")
-    suspend fun favoriteItem(weatherId: Long): Int
+    suspend fun favoriteItem(weatherId: Long)
 
     @Query("UPDATE ${WeatherElement.TABLE_NAME} SET isFavorite = 0 WHERE id = :weatherId")
-    suspend fun removeAsFavoriteItem(weatherId: Long): Int
+    suspend fun removeAsFavoriteItem(weatherId: Long)
 }

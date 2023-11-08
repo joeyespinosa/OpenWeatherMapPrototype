@@ -16,12 +16,12 @@ import com.axelia.openweathermapprototype.utils.toTemperatureDisplay
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @ExperimentalCoroutinesApi
-@AndroidEntryPoint
 class ItemDetailsFragment : Fragment() {
 
-    private val mViewModel: ItemDetailsViewModel by viewModels()
+    private val mViewModel: ItemDetailsViewModel by viewModel()
     private lateinit var itemDetail: WeatherElement
 
     private var _binding: FragmentWeatherDetailsBinding? = null

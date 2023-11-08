@@ -18,8 +18,7 @@ import retrofit2.http.Query
  * ViewModel for [MainActivity]
  */
 @ExperimentalCoroutinesApi
-@ActivityScoped
-class MainViewModel @ViewModelInject constructor(private val repository: WeatherListRepository) :
+class MainViewModel constructor(private val repository: WeatherListRepository) :
     ViewModel() {
 
     private val _itemLiveData = MutableLiveData<State<List<WeatherElement>>>()

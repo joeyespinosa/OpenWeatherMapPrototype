@@ -19,13 +19,13 @@ import com.axelia.openweathermapprototype.ui.main.adapter.WeatherListAdapter
 import com.axelia.openweathermapprototype.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @ExperimentalCoroutinesApi
-@AndroidEntryPoint
 class MainFragment : Fragment(),
     WeatherListAdapter.OnItemClickListener {
 
-    private val mViewModel: MainViewModel by viewModels()
+    private val mViewModel: MainViewModel by viewModel()
     private val mAdapter: WeatherListAdapter by lazy { WeatherListAdapter(onItemClickListener = this) }
 
     private var _binding: FragmentMainBinding? = null
