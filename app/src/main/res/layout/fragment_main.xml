@@ -29,6 +29,13 @@
                 tools:text="@string/text_no_connectivity" />
         </LinearLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/nav_concept"
+            android:id="@+id/button_navigation" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_weather"
             style="@style/WeatherRecyclerStyle"

@@ -42,7 +42,7 @@ object Coroutines {
 object Android {
     const val appcompat = "androidx.appcompat:appcompat:1.1.0"
     const val activityKtx = "androidx.activity:activity-ktx:1.1.0"
-    const val coreKtx = "androidx.core:core-ktx:1.2.0"
+    const val coreKtx = "androidx.core:core-ktx:1.6.0"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
     const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 }

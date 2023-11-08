@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.NavHostFragment
 import com.afollestad.materialdialogs.MaterialDialog
 import com.axelia.openweathermapprototype.R
 import com.axelia.openweathermapprototype.databinding.ActivityMainBinding
@@ -30,10 +31,24 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             supportFragmentManager, fragment, R.id.fragment_container
         )
 
-        setSupportActionBar(mViewBinding.toolbar)
         supportFragmentManager.addOnBackStackChangedListener {
             shouldDisplayHomeUp();
         }
+
+        setSupportActionBar(mViewBinding.toolbar)
+
+//        val binding = getViewBinding()
+//        val navHostFragment =
+//            (supportFragmentManager.findFragmentById(binding.fragmentContainer.id) as NavHostFragment)
+//        val navController = navHostFragment.navController
+//
+//        setContentView(binding.root)
+//
+//        navController.setGraph(
+//            R.navigation.nav_openweathermap,
+//        )
+
+//        setSupportActionBar(mViewBinding.toolbar)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

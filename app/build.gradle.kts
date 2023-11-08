@@ -2,18 +2,19 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("kotlin-android-extensions")
-    id("dagger.hilt.android.plugin")
+//    id("kotlin-android-extensions")
+//    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs")
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(33)
     buildToolsVersion("29.0.3")
 
     defaultConfig {
         applicationId = "com.axelia.openweathermapprototype"
         minSdkVersion(21)
-        targetSdkVersion(29)
+        targetSdkVersion(33)
         versionCode = 1
         versionName = "1.0"
 
@@ -131,4 +132,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
 
     implementation("io.insert-koin:koin-android:3.1.4")
+
+    implementation("androidx.navigation:navigation-fragment:2.5.1")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.1")
+//    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.1")
 }

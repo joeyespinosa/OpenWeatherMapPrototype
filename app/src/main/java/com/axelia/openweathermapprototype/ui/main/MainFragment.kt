@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -16,6 +17,7 @@ import com.axelia.openweathermapprototype.databinding.FragmentMainBinding
 import com.axelia.openweathermapprototype.model.WeatherElement
 import com.axelia.openweathermapprototype.ui.details.ItemDetailsFragment
 import com.axelia.openweathermapprototype.ui.main.adapter.WeatherListAdapter
+import com.axelia.openweathermapprototype.ui.navconcept.NavConceptActivity
 import com.axelia.openweathermapprototype.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -43,6 +45,8 @@ class MainFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initItems()
+
+        Toast.makeText(context, "Test", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
@@ -76,6 +80,11 @@ class MainFragment : Fragment(),
 
         binding.swiperefreshlayout.setOnRefreshListener {
             getWeatherItems()
+        }
+
+        binding.buttonNavigation.setOnClickListener {
+            // Intent go to new activity
+            startActivity(Intent(activity, NavConceptActivity::class.java))
         }
     }
 
