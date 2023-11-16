@@ -3,7 +3,10 @@ package com.axelia.openweathermapprototype
 import android.app.Application
 import com.axelia.openweathermapprototype.data.local.OpenWeatherMapDatabase
 import com.axelia.openweathermapprototype.data.local.dao.WeatherDao
+import com.axelia.openweathermapprototype.data.remote.api.MeowFactService
 import com.axelia.openweathermapprototype.data.remote.api.OpenWeatherMapService
+import com.axelia.openweathermapprototype.data.repository.MeowFactRepository
+import com.axelia.openweathermapprototype.data.repository.MeowFactRepositoryImpl
 import com.axelia.openweathermapprototype.data.repository.WeatherListRepository
 import com.axelia.openweathermapprototype.ui.details.ItemDetailsViewModel
 import com.axelia.openweathermapprototype.ui.main.MainActivity
@@ -32,7 +35,7 @@ class OpenWeatherMapApp : Application() {
 
         startKoin{
             androidContext(applicationContext)
-            modules(appModule)
+            modules(appModule, appModule2)
         }
     }
 }
@@ -65,7 +68,8 @@ val appModule = module {
 
     viewModel {
         MainViewModel(
-            repository = get()
+            repository = get(),
+            meowFactRepository = get()
         )
     }
 
@@ -79,6 +83,27 @@ val appModule = module {
         WeatherListRepository(
             itemsDao = get(),
             apiService = get()
+        )
+    }
+}
+
+val appModule2 = module {
+
+    single { Retrofit.Builder()
+        .baseUrl(MeowFactService.API_URL)
+        .addConverterFactory(
+            MoshiConverterFactory.create(
+                Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+            )
+        )
+        .build()
+    }
+
+    single { get<Retrofit>().create(MeowFactService::class.java) }
+
+    single<MeowFactRepository> {
+        MeowFactRepositoryImpl(
+            service = get(),
         )
     }
 }

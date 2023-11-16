@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +63,21 @@ class MainFragment : Fragment(),
 
         handleNetworkChanges()
 
+        mViewModel.meowItemLiveData.observe(viewLifecycleOwner, Observer { state ->
+            when (state) {
+                is State.Loading -> showLoading(true)
+                is State.Success -> {
+                    state.data.forEach { item ->
+                        Log.d("MEOW", item)
+                    }
+                }
+                is State.Error -> {
+                    requireActivity().showToast(state.message)
+                    showLoading(false)
+                }
+            }
+        })
+
         mViewModel.itemLiveData.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
                 is State.Loading -> showLoading(true)
@@ -84,7 +100,10 @@ class MainFragment : Fragment(),
 
         binding.buttonNavigation.setOnClickListener {
             // Intent go to new activity
-            startActivity(Intent(activity, NavConceptActivity::class.java))
+//            startActivity(Intent(activity, NavConceptActivity::class.java))
+
+            // Get meow items
+            mViewModel.getMeowItems()
         }
     }
 
